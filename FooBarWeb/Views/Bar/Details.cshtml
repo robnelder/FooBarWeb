@@ -1,0 +1,26 @@
+﻿@model FooBarWeb.Models.Bar
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Bar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BarName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BarName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BarID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

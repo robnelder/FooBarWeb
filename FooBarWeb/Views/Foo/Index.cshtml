@@ -1,0 +1,56 @@
+﻿@model FooBarWeb.ViewModels.FooBar
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.foo.FooName)    
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Foos) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FooName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FooID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FooID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FooID })
+        </td>
+    </tr>
+}
+
+</table>
+<br />
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            BarName
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Bars)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BarName)
+            </td>
+            <td>
+                <a href=@("/Bar/Edit/" + item.BarID.ToString())>Edit</a>
+            </td>
+        </tr>
+    }
+</table>
